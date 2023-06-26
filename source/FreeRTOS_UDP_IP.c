@@ -90,7 +90,7 @@ UDPPacketHeader_t xDefaultPartUDPPacketHeader =
  * @brief Process the generated UDP packet and do other checks before sending the
  *        packet such as ARP cache check and address resolution.
  *
- * @param[in] pxNetworkBuffer: The network buffer carrying the packet.
+ * @param[in] pxNetworkBuffer The network buffer carrying the packet.
  */
 void vProcessGeneratedUDPPacket( NetworkBufferDescriptor_t * const pxNetworkBuffer )
 {
@@ -128,9 +128,9 @@ void vProcessGeneratedUDPPacket( NetworkBufferDescriptor_t * const pxNetworkBuff
 /**
  * @brief Process the received UDP packet.
  *
- * @param[in] pxNetworkBuffer: The network buffer carrying the UDP packet.
- * @param[in] usPort: The port number on which this packet was received.
- * @param[out] pxIsWaitingForARPResolution: If the packet is awaiting ARP resolution,
+ * @param[in] pxNetworkBuffer The network buffer carrying the UDP packet.
+ * @param[in] usPort The port number on which this packet was received.
+ * @param[out] pxIsWaitingForARPResolution If the packet is awaiting ARP resolution,
  *             this pointer will be set to pdTRUE. pdFALSE otherwise.
  *
  * @return pdPASS in case the UDP packet could be processed. Else pdFAIL is returned.
@@ -150,7 +150,7 @@ BaseType_t xProcessReceivedUDPPacket( NetworkBufferDescriptor_t * pxNetworkBuffe
     /* MISRA Ref 11.3.1 [Misaligned access] */
     /* More details at: https://github.com/FreeRTOS/FreeRTOS-Plus-TCP/blob/main/MISRA.md#rule-113 */
     /* coverity[misra_c_2012_rule_11_3_violation] */
-    const UDPPacket_t * pxUDPPacket = ( ( const UDPPacket_t * ) pxNetworkBuffer->pucEthernetBuffer );
+    pxUDPPacket = ( ( UDPPacket_t * ) pxNetworkBuffer->pucEthernetBuffer );
 
     switch( pxUDPPacket->xEthernetHeader.usFrameType )
     {

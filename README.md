@@ -1,4 +1,4 @@
-## NOTE - Work In Progress
+## NOTE - Pushing change for dev and then will try to change it to maintry
 
 This branch contains unified IPv4 and IPv6 functionalities.
 Refer to the Getting started Guide (found [here](https://github.com/FreeRTOS/FreeRTOS-Plus-TCP/blob/dev/IPv6_integration/GettingStarted_4.0.0-rc3.md)) for more details.
